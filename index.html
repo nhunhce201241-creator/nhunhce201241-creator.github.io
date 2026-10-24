@@ -27,6 +27,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         body {
@@ -41,11 +42,18 @@
             text-decoration: none;
         }
 
+        a:focus-visible {
+            outline: 3px solid var(--pink);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
         .container {
             width: min(1080px, 90%);
             margin: auto;
         }
 
+        /* Navigation */
         nav {
             position: sticky;
             top: 0;
@@ -76,10 +84,15 @@
             font-size: 0.92rem;
         }
 
+        .nav-links a {
+            transition: color 0.2s ease;
+        }
+
         .nav-links a:hover {
             color: var(--pink-dark);
         }
 
+        /* Hero section */
         .hero {
             padding: 100px 0 85px;
             background:
@@ -92,6 +105,7 @@
             grid-template-columns: 1.5fr 1fr;
             gap: 50px;
             align-items: center;
+            animation: fadeInUp 0.8s ease-out both;
         }
 
         .eyebrow {
@@ -134,7 +148,7 @@
             padding: 12px 21px;
             border-radius: 12px;
             font-weight: 700;
-            transition: 0.2s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .button-primary {
@@ -149,8 +163,10 @@
 
         .button:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(169, 81, 114, 0.12);
         }
 
+        /* Profile card */
         .profile-card {
             background: white;
             border: 1px solid var(--border);
@@ -187,6 +203,7 @@
             font-size: 0.9rem;
         }
 
+        /* General sections */
         section {
             padding: 78px 0;
             scroll-margin-top: 70px;
@@ -216,6 +233,7 @@
             max-width: 650px;
         }
 
+        /* About */
         .about-box {
             background: white;
             border: 1px solid var(--border);
@@ -227,6 +245,7 @@
             margin-top: 15px;
         }
 
+        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -239,6 +258,26 @@
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 25px;
+        }
+
+        /* Subtle card hover effect */
+        .skill-card,
+        .project-card,
+        .about-box,
+        .profile-card {
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .skill-card:hover,
+        .project-card:hover,
+        .about-box:hover,
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(169, 81, 114, 0.10);
+            border-color: #e5b5c7;
         }
 
         .skill-card h3,
@@ -268,6 +307,7 @@
             font-weight: 700;
         }
 
+        /* Projects */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -306,12 +346,15 @@
             margin-top: 20px;
             color: var(--pink-dark);
             font-weight: 700;
+            transition: color 0.2s ease;
         }
 
         .project-link:hover {
             text-decoration: underline;
+            color: var(--pink);
         }
 
+        /* Contact */
         .contact-box {
             background: var(--pink-light);
             border: 1px solid var(--border);
@@ -333,6 +376,15 @@
             color: var(--pink-dark);
         }
 
+        .contact-links a {
+            transition: transform 0.2s ease;
+        }
+
+        .contact-links a:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
         footer {
             padding: 25px 0;
             border-top: 1px solid var(--border);
@@ -341,6 +393,19 @@
             text-align: center;
         }
 
+        /* Fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile layout */
         @media (max-width: 760px) {
             .nav-inner {
                 padding: 15px 0;
@@ -374,10 +439,22 @@
                 padding: 25px;
             }
         }
+
+        /* Respect reduced-motion accessibility settings */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="container nav-inner">
             <a class="logo" href="#">Hong Nhu.</a>
@@ -390,6 +467,7 @@
         </div>
     </nav>
 
+    <!-- Hero -->
     <header class="hero">
         <div class="container hero-content">
             <div>
@@ -402,10 +480,14 @@
                 </p>
 
                 <div class="buttons">
-                    <a class="button button-primary" href="#projects">Explore My Projects ↗</a>
+                    <a class="button button-primary" href="#projects">
+                        Explore My Projects ↗
+                    </a>
                     <a class="button button-secondary"
                        href="https://github.com/nhunhce201241-creator"
-                       target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                       target="_blank" rel="noopener noreferrer">
+                        GitHub Profile
+                    </a>
                 </div>
             </div>
 
@@ -426,12 +508,14 @@
     </header>
 
     <main>
+        <!-- About -->
         <section id="about">
             <div class="container">
                 <div class="section-heading">
                     <span class="section-label">01 / About</span>
                     <h2 class="section-title">A little about me</h2>
                 </div>
+
                 <div class="about-box">
                     <p>
                         I am a Software Engineering student at FPT University
@@ -451,6 +535,7 @@
             </div>
         </section>
 
+        <!-- Skills -->
         <section id="skills">
             <div class="container">
                 <div class="section-heading">
@@ -503,6 +588,7 @@
             </div>
         </section>
 
+        <!-- Projects -->
         <section id="projects">
             <div class="container">
                 <div class="section-heading">
@@ -515,80 +601,100 @@
                 </div>
 
                 <div class="projects-grid">
+                    <!-- CoffeeRuu -->
                     <article class="project-card">
                         <div class="project-top">
                             <span class="project-icon">☕</span>
                             <span class="status">In Progress</span>
                         </div>
+
                         <h3>CoffeeRuu</h3>
                         <p>
                             A team project focused on coffee shop management
                             and menu administration.
                         </p>
+
                         <ul>
                             <li>Developing product search and category filters.</li>
                             <li>Working on product sorting and CRUD operations.</li>
                             <li>Applying MVVM architecture in a WPF application.</li>
                         </ul>
+
                         <div class="tags">
                             <span class="tag">C#</span>
                             <span class="tag">WPF</span>
                             <span class="tag">EF Core</span>
                             <span class="tag">SQL Server</span>
                         </div>
+
                         <a class="project-link"
                            href="https://github.com/THAINGUYENPHAT/Group3_SE2001_Project_PRN212"
-                           target="_blank" rel="noopener noreferrer">View Repository ↗</a>
+                           target="_blank" rel="noopener noreferrer">
+                            View Repository ↗
+                        </a>
                     </article>
 
+                    <!-- RedLies -->
                     <article class="project-card">
                         <div class="project-top">
                             <span class="project-icon">🔎</span>
                             <span class="status">In Progress</span>
                         </div>
+
                         <h3>RedLies</h3>
                         <p>
                             A narrative mystery game concept built around
                             investigating cases and evaluating evidence.
                         </p>
+
                         <ul>
                             <li>Developing a web application using ASP.NET Core MVC.</li>
                             <li>Working with database models and Entity Framework Core.</li>
                             <li>Designing investigation-focused gameplay elements.</li>
                         </ul>
+
                         <div class="tags">
                             <span class="tag">C#</span>
                             <span class="tag">ASP.NET Core MVC</span>
                             <span class="tag">SQL Server</span>
                             <span class="tag">JavaScript</span>
                         </div>
+
                         <a class="project-link"
                            href="https://github.com/nhunhce201241-creator/RedLies-"
-                           target="_blank" rel="noopener noreferrer">View Repository ↗</a>
+                           target="_blank" rel="noopener noreferrer">
+                            View Repository ↗
+                        </a>
                     </article>
 
+                    <!-- Sudoku -->
                     <article class="project-card">
                         <div class="project-top">
                             <span class="project-icon">🧩</span>
                             <span class="status">Academic Project</span>
                         </div>
+
                         <h3>Sudoku</h3>
                         <p>
                             An academic project developed as part of my
                             software engineering studies.
                         </p>
+
                         <p style="margin-top: 12px;">
                             Project details and technologies can be added here.
                         </p>
+
                         <div class="tags">
                             <span class="tag">Academic Project</span>
                         </div>
+
                         <!-- Add the real Sudoku repository link when available. -->
                     </article>
                 </div>
             </div>
         </section>
 
+        <!-- Contact -->
         <section id="contact">
             <div class="container">
                 <div class="contact-box">
@@ -598,17 +704,24 @@
                         I welcome opportunities to learn, collaborate,
                         and grow as a software developer.
                     </p>
+
                     <div class="contact-links">
                         <a href="https://github.com/nhunhce201241-creator"
-                           target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                        <!-- Replace the email below with your real email. -->
-                        <a href="mailto:YOUR_EMAIL@example.com">Email ↗</a>
+                           target="_blank" rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+
+                        <!-- Replace with your real email address -->
+                        <a href="mailto:nhunhce201241@gmail.com">
+                            Email ↗
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             © 2026 Hong Nhu · Built with HTML & CSS
@@ -616,4 +729,3 @@
     </footer>
 </body>
 </html>
-
