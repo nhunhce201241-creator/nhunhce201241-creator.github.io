@@ -8,9 +8,19 @@
     <title>Hong Nhu | .NET Developer Intern</title>
 
     <meta name="description"
-          content="Hong Nhu's portfolio for .NET Developer Intern opportunities.">
+          content="Portfolio of Hong Nhu, a Software Engineering student interested in .NET development.">
 
     <style>
+        :root {
+            --pink: #d9a0b3;
+            --pink-light: #fdf2f6;
+            --pink-border: #eed9e1;
+            --pink-dark: #98677a;
+            --text: #333333;
+            --muted: #777777;
+            --white: #ffffff;
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -24,16 +34,16 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 15px;
             line-height: 1.7;
-            color: #222;
-            background: #fff;
+            color: var(--text);
+            background: var(--white);
         }
 
         a {
-            color: #222;
+            color: var(--pink-dark);
         }
 
         a:hover {
-            color: #666;
+            color: #704657;
         }
 
         .container {
@@ -44,7 +54,8 @@
 
         /* Navigation */
         nav {
-            border-bottom: 1px solid #ddd;
+            background: var(--white);
+            border-bottom: 1px solid #eeeeee;
         }
 
         .nav-inner {
@@ -56,6 +67,7 @@
         }
 
         .logo {
+            color: var(--pink-dark);
             font-weight: bold;
             font-size: 17px;
             text-decoration: none;
@@ -68,21 +80,27 @@
         }
 
         .nav-links a {
-            text-decoration: none;
+            color: var(--text);
             font-size: 14px;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink-dark);
         }
 
         /* Introduction */
         header {
-            padding: 55px 0 45px;
-            border-bottom: 1px solid #ddd;
+            padding: 60px 0 50px;
+            background: var(--pink-light);
+            border-bottom: 1px solid var(--pink-border);
         }
 
         .role {
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #666;
+            color: var(--pink-dark);
         }
 
         h1 {
@@ -93,7 +111,7 @@
 
         .intro {
             max-width: 650px;
-            color: #444;
+            color: #555555;
         }
 
         .header-links {
@@ -103,16 +121,32 @@
             margin-top: 20px;
         }
 
-        /* Sections */
+        .header-links a {
+            text-decoration: none;
+            border-bottom: 1px solid var(--pink);
+            padding-bottom: 2px;
+        }
+
+        /* General sections */
         section {
-            padding: 35px 0;
-            border-bottom: 1px solid #ddd;
+            padding: 38px 0;
+            border-bottom: 1px solid #eeeeee;
             scroll-margin-top: 20px;
         }
 
         h2 {
             font-size: 22px;
-            margin: 0 0 18px;
+            margin: 0 0 22px;
+            color: var(--text);
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 38px;
+            height: 2px;
+            background: var(--pink);
+            margin-top: 7px;
         }
 
         h3 {
@@ -125,7 +159,12 @@
         }
 
         .muted {
-            color: #666;
+            color: var(--muted);
+        }
+
+        /* About */
+        .about-text p {
+            margin-bottom: 12px;
         }
 
         /* Skills */
@@ -142,71 +181,126 @@
             margin-bottom: 3px;
         }
 
-        /* Projects */
-        .project {
-            padding: 18px 0;
-            border-bottom: 1px solid #eee;
+        .skill-group p {
+            color: #555555;
         }
 
-        .project:first-child {
-            padding-top: 0;
+        /* Projects */
+        .project {
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 1px solid var(--pink-border);
+            border-radius: 6px;
+            background: var(--white);
         }
 
         .project:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .project h3 {
+            color: var(--text);
         }
 
         .project-meta {
-            color: #666;
+            color: var(--muted);
             font-size: 13px;
             margin-bottom: 8px;
         }
 
-        ul {
+        .project ul {
             padding-left: 22px;
-            margin: 8px 0;
+            margin: 10px 0;
         }
 
-        li {
+        .project li {
             margin-bottom: 4px;
         }
 
         .tech {
             font-size: 14px;
-            color: #555;
-            margin-top: 8px;
+            color: #555555;
+            margin-top: 10px;
+        }
+
+        .status {
+            display: inline-block;
+            font-size: 12px;
+            color: var(--pink-dark);
+            background: var(--pink-light);
+            border: 1px solid var(--pink-border);
+            border-radius: 3px;
+            padding: 2px 8px;
+            margin-bottom: 10px;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
         }
 
         /* Certificates */
         .certificate {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .certificate:first-child {
+            padding-top: 0;
         }
 
         .certificate:last-child {
             border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .certificate h3 {
+            line-height: 1.5;
         }
 
         .certificate p {
             font-size: 14px;
-            color: #555;
+            color: var(--muted);
         }
 
         /* Contact */
+        .contact-box {
+            background: var(--pink-light);
+            border: 1px solid var(--pink-border);
+            padding: 25px;
+            border-radius: 6px;
+        }
+
+        .contact-box h2 {
+            margin-bottom: 18px;
+        }
+
+        .contact-box p {
+            color: #555555;
+        }
+
         .contact-links {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            margin-top: 12px;
+            margin-top: 15px;
         }
 
+        .contact-links a {
+            overflow-wrap: anywhere;
+        }
+
+        /* Footer */
         footer {
             padding: 20px 0;
-            color: #666;
+            color: var(--muted);
             font-size: 13px;
+            text-align: center;
         }
 
+        /* Mobile layout */
         @media (max-width: 600px) {
             .nav-inner {
                 align-items: flex-start;
@@ -217,8 +311,31 @@
                 gap: 12px;
             }
 
+            header {
+                padding: 45px 0;
+            }
+
             h1 {
                 font-size: 30px;
+            }
+
+            section {
+                padding: 30px 0;
+            }
+
+            .project {
+                padding: 16px;
+            }
+
+            .contact-box {
+                padding: 20px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
             }
         }
     </style>
@@ -235,7 +352,7 @@
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
-                <a href="#education">Learning</a>
+                <a href="#certificates">Certificates</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -246,25 +363,26 @@
         <div class="container">
             <p class="role">Software Engineering Student</p>
 
-            <h1>Hong Nhu</h1>
+            <h1>Hello, I'm Hong Nhu.</h1>
 
             <p class="intro">
                 I am a Software Engineering student at FPT University
-                seeking a .NET Developer Intern opportunity. I am
-                interested in C#, object-oriented programming, database
-                development, and building applications with .NET.
+                seeking a .NET Developer Intern opportunity. I am interested
+                in C#, object-oriented programming, database development,
+                and building applications with .NET.
             </p>
 
             <div class="header-links">
                 <a href="#projects">View Projects</a>
 
                 <a href="https://github.com/nhunhce201241-creator"
-                   target="_blank" rel="noopener noreferrer">
-                    GitHub
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub Profile
                 </a>
 
                 <a href="mailto:nhunhce201241@gmail.com">
-                    Email
+                    Email Me
                 </a>
             </div>
         </div>
@@ -277,22 +395,25 @@
             <div class="container">
                 <h2>About Me</h2>
 
-                <p>
-                    I am studying Software Engineering at FPT University.
-                    Through coursework and team projects, I have practiced
-                    programming, database operations, and application development.
-                </p>
+                <div class="about-text">
+                    <p>
+                        I am studying Software Engineering at FPT University.
+                        Through coursework and team projects, I have practiced
+                        programming, database operations, and application
+                        development.
+                    </p>
 
-                <p>
-                    I am currently focusing on C# and .NET development.
-                    I want to improve my coding skills, understand how
-                    applications are structured, and gain experience
-                    working on real software projects.
-                </p>
+                    <p>
+                        I am currently focusing on C# and .NET development.
+                        I want to improve my programming skills, understand
+                        application architecture, and gain practical experience
+                        by contributing to software projects.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- Skills -->
+        <!-- Technical Skills -->
         <section id="skills">
             <div class="container">
                 <h2>Technical Skills</h2>
@@ -303,29 +424,34 @@
                 </div>
 
                 <div class="skill-group">
-                    <strong>.NET Development</strong>
+                    <strong>.NET Technologies</strong>
                     <p>
-                        .NET, WPF, ASP.NET Core MVC, Entity Framework Core,
-                        LINQ, CRUD operations
+                        .NET, WPF, ASP.NET Core MVC,
+                        Entity Framework Core, LINQ
                     </p>
                 </div>
 
                 <div class="skill-group">
                     <strong>Programming Concepts</strong>
                     <p>
-                        Object-Oriented Programming (OOP), MVVM,
-                        MVC, basic data structures
+                        Object-Oriented Programming (OOP), MVC, MVVM,
+                        CRUD operations
                     </p>
                 </div>
 
                 <div class="skill-group">
                     <strong>Database</strong>
-                    <p>SQL Server, relational database design, SQL queries</p>
+                    <p>
+                        SQL Server, relational database design,
+                        SQL queries
+                    </p>
                 </div>
 
                 <div class="skill-group">
                     <strong>Tools</strong>
-                    <p>Visual Studio, Git, GitHub, NetBeans</p>
+                    <p>
+                        Visual Studio, Git, GitHub, NetBeans
+                    </p>
                 </div>
             </div>
         </section>
@@ -337,10 +463,12 @@
 
                 <!-- CoffeeRuu -->
                 <article class="project">
+                    <span class="status">In Progress</span>
+
                     <h3>CoffeeRuu — Coffee Shop Management</h3>
 
                     <p class="project-meta">
-                        Team Project | In Progress
+                        Team Project
                     </p>
 
                     <p>
@@ -350,14 +478,15 @@
 
                     <ul>
                         <li>
-                            Developed menu-related features, including
-                            product search, category filtering, and sorting.
+                            Worked on product search, category filtering,
+                            and sorting features.
                         </li>
                         <li>
-                            Worked on product management and CRUD operations.
+                            Implemented menu-related product management
+                            and CRUD operations.
                         </li>
                         <li>
-                            Used data binding and MVVM to separate
+                            Used MVVM and data binding to separate
                             application logic from the user interface.
                         </li>
                     </ul>
@@ -367,22 +496,26 @@
                         C#, WPF, .NET, Entity Framework Core, SQL Server
                     </p>
 
-                    <a href="https://github.com/THAINGUYENPHAT/Group3_SE2001_Project_PRN212"
-                       target="_blank" rel="noopener noreferrer">
-                        GitHub Repository →
+                    <a class="project-link"
+                       href="https://github.com/THAINGUYENPHAT/Group3_SE2001_Project_PRN212"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Repository →
                     </a>
                 </article>
 
                 <!-- RedLies -->
                 <article class="project">
+                    <span class="status">In Progress</span>
+
                     <h3>RedLies — Mystery Game</h3>
 
                     <p class="project-meta">
-                        Personal Project | In Progress
+                        Personal Project
                     </p>
 
                     <p>
-                        A story-driven mystery game focused on investigating
+                        A story-driven mystery game about investigating
                         cases, discovering clues, and making decisions.
                     </p>
 
@@ -399,12 +532,15 @@
 
                     <p class="tech">
                         <strong>Technologies:</strong>
-                        C#, ASP.NET Core MVC, SQL Server, Entity Framework Core
+                        C#, ASP.NET Core MVC, SQL Server,
+                        Entity Framework Core
                     </p>
 
-                    <a href="https://github.com/nhunhce201241-creator/RedLies-"
-                       target="_blank" rel="noopener noreferrer">
-                        GitHub Repository →
+                    <a class="project-link"
+                       href="https://github.com/nhunhce201241-creator/RedLies-"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Repository →
                     </a>
                 </article>
 
@@ -412,7 +548,9 @@
                 <article class="project">
                     <h3>Task Management</h3>
 
-                    <p class="project-meta">Academic Project</p>
+                    <p class="project-meta">
+                        Academic Project
+                    </p>
 
                     <p>
                         A project developed to practice programming
@@ -421,12 +559,14 @@
 
                     <p class="tech">
                         <strong>Technologies:</strong>
-                        Add the languages and tools used in this project.
+                        Add the actual languages and tools used.
                     </p>
 
-                    <a href="https://github.com/nhunhce201241-creator/TaskManagement"
-                       target="_blank" rel="noopener noreferrer">
-                        GitHub Repository →
+                    <a class="project-link"
+                       href="https://github.com/nhunhce201241-creator/TaskManagement"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Repository →
                     </a>
                 </article>
 
@@ -434,38 +574,45 @@
                 <article class="project">
                     <h3>Sudoku Game</h3>
 
-                    <p class="project-meta">Academic Project</p>
+                    <p class="project-meta">
+                        Academic Project
+                    </p>
 
                     <p>
-                        A Sudoku game developed as part of my programming
-                        coursework.
+                        A Sudoku game developed as part of my
+                        programming coursework.
                     </p>
 
                     <p class="tech">
                         <strong>Technologies:</strong>
-                        Add the languages and tools used in this project.
+                        Add the actual languages and tools used.
                     </p>
 
-                    <a href="https://github.com/nhunhce201241-creator/SudokuGame"
-                       target="_blank" rel="noopener noreferrer">
-                        GitHub Repository →
+                    <a class="project-link"
+                       href="https://github.com/nhunhce201241-creator/SudokuGame"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Repository →
                     </a>
                 </article>
             </div>
         </section>
 
-        <!-- Learning -->
-        <section id="education">
+        <!-- Certificates -->
+        <section id="certificates">
             <div class="container">
-                <h2>Courses & Certificates</h2>
+                <h2>Certificates & Courses</h2>
 
                 <article class="certificate">
                     <h3>Software Design and Project Management</h3>
                     <p>
                         Coursera · The Hong Kong University of Science and Technology
                     </p>
+                    <p>Completed: May 19, 2026</p>
+
                     <a href="https://coursera.org/share/3c5d5231865920280d7dc8b9b68a4804"
-                       target="_blank" rel="noopener noreferrer">
+                       target="_blank"
+                       rel="noopener noreferrer">
                         View Certificate →
                     </a>
                 </article>
@@ -475,8 +622,11 @@
                     <p>
                         Coursera · The Hong Kong University of Science and Technology
                     </p>
+                    <p>Completed: May 19, 2026</p>
+
                     <a href="https://coursera.org/share/774f4c1147f7c47797c5bf95de6dbeeb"
-                       target="_blank" rel="noopener noreferrer">
+                       target="_blank"
+                       rel="noopener noreferrer">
                         View Certificate →
                     </a>
                 </article>
@@ -486,8 +636,11 @@
                     <p>
                         Coursera · The Hong Kong University of Science and Technology
                     </p>
+                    <p>Completed: May 19, 2026</p>
+
                     <a href="https://coursera.org/share/9361b400d7919d08db9c44b33b72f3e6"
-                       target="_blank" rel="noopener noreferrer">
+                       target="_blank"
+                       rel="noopener noreferrer">
                         View Certificate →
                     </a>
                 </article>
@@ -495,17 +648,26 @@
                 <article class="certificate">
                     <h3>Generative AI in Software Development</h3>
                     <p>Coursera · Amazon</p>
+                    <p>Completed: May 19, 2026</p>
+
                     <a href="https://coursera.org/share/48bf0253502d610a12aec4527116028f"
-                       target="_blank" rel="noopener noreferrer">
+                       target="_blank"
+                       rel="noopener noreferrer">
                         View Certificate →
                     </a>
                 </article>
 
                 <article class="certificate">
-                    <h3>Web Design for Everybody: Basics of Web Development & Coding Specialization</h3>
+                    <h3>
+                        Web Design for Everybody: Basics of Web Development
+                        & Coding Specialization
+                    </h3>
                     <p>Coursera · University of Michigan</p>
+                    <p>Completed: October 16, 2025</p>
+
                     <a href="https://coursera.org/share/c1424b80e8b8c4a90da16a61011fbad9"
-                       target="_blank" rel="noopener noreferrer">
+                       target="_blank"
+                       rel="noopener noreferrer">
                         View Certificate →
                     </a>
                 </article>
@@ -515,31 +677,35 @@
         <!-- Contact -->
         <section id="contact">
             <div class="container">
-                <h2>Contact</h2>
+                <div class="contact-box">
+                    <h2>Contact</h2>
 
-                <p>
-                    I am open to .NET Developer Intern opportunities
-                    where I can learn and contribute to software projects.
-                </p>
+                    <p>
+                        I am looking for opportunities to learn,
+                        contribute, and grow as a .NET developer.
+                    </p>
 
-                <div class="contact-links">
-                    <a href="mailto:nhunhce201241@gmail.com">
-                        nhunhce201241@gmail.com
-                    </a>
+                    <div class="contact-links">
+                        <a href="mailto:nhunhce201241@gmail.com">
+                            nhunhce201241@gmail.com
+                        </a>
 
-                    <a href="https://github.com/nhunhce201241-creator"
-                       target="_blank" rel="noopener noreferrer">
-                        GitHub Profile
-                    </a>
+                        <a href="https://github.com/nhunhce201241-creator"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub Profile
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            © 2026 Hong Nhu
+            © 2026 Hong Nhu | Built with HTML and CSS
         </div>
     </footer>
 
