@@ -1,1 +1,619 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hong Nhu | Software Engineering Portfolio</title>
+    <meta name="description" content="Portfolio of a Software Engineering student interested in application development.">
+
+    <style>
+        :root {
+            --pink: #d98ca7;
+            --pink-light: #fff0f5;
+            --pink-dark: #a95172;
+            --background: #fffafb;
+            --text: #382b32;
+            --muted: #796b72;
+            --border: #f0dce4;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1080px, 90%);
+            margin: auto;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(255, 250, 251, 0.94);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-inner {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: var(--pink-dark);
+            font-weight: 800;
+            font-size: 1.15rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            font-size: 0.92rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink-dark);
+        }
+
+        .hero {
+            padding: 100px 0 85px;
+            background:
+                radial-gradient(circle at 85% 20%, #fce3ec 0, transparent 28%),
+                radial-gradient(circle at 10% 80%, #fff0f5 0, transparent 30%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            padding: 7px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.4rem);
+            line-height: 1.12;
+            letter-spacing: -2px;
+            margin-bottom: 22px;
+        }
+
+        h1 span {
+            color: var(--pink-dark);
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 590px;
+            font-size: 1.05rem;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 21px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .button-primary {
+            background: var(--pink-dark);
+            color: white;
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+            background: white;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .profile-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 18px 50px rgba(169, 81, 114, 0.08);
+        }
+
+        .profile-icon {
+            width: 75px;
+            height: 75px;
+            display: grid;
+            place-items: center;
+            border-radius: 22px;
+            background: var(--pink-light);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .profile-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .profile-card p {
+            font-size: 0.94rem;
+        }
+
+        .profile-detail {
+            border-top: 1px solid var(--border);
+            margin-top: 22px;
+            padding-top: 18px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        section {
+            padding: 78px 0;
+            scroll-margin-top: 70px;
+        }
+
+        .section-heading {
+            margin-bottom: 32px;
+        }
+
+        .section-label {
+            color: var(--pink-dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        h2.section-title {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin-top: 8px;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            margin-top: 10px;
+            max-width: 650px;
+        }
+
+        .about-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 30px;
+        }
+
+        .about-box p + p {
+            margin-top: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .skill-card,
+        .project-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+        }
+
+        .skill-card h3,
+        .project-card h3 {
+            margin-bottom: 14px;
+        }
+
+        .skill-card p,
+        .project-card p {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            border-radius: 8px;
+            padding: 5px 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .project-icon {
+            font-size: 1.8rem;
+        }
+
+        .status {
+            color: var(--pink-dark);
+            background: var(--pink-light);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .project-card ul {
+            margin: 15px 0 0 18px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--pink-dark);
+            font-weight: 700;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .contact-box {
+            background: var(--pink-light);
+            border: 1px solid var(--border);
+            border-radius: 26px;
+            padding: 38px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 22px;
+            font-weight: 700;
+            color: var(--pink-dark);
+        }
+
+        footer {
+            padding: 25px 0;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        @media (max-width: 760px) {
+            .nav-inner {
+                padding: 15px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+
+            .contact-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container nav-inner">
+            <a class="logo" href="#">Hong Nhu.</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <div>
+                <span class="eyebrow">SOFTWARE ENGINEERING STUDENT</span>
+                <h1>Hello, I'm<br><span>Hong Nhu.</span></h1>
+                <p>
+                    I'm a Software Engineering student at FPT University
+                    interested in application development, database systems,
+                    and building practical software solutions.
+                </p>
+
+                <div class="buttons">
+                    <a class="button button-primary" href="#projects">Explore My Projects ↗</a>
+                    <a class="button button-secondary"
+                       href="https://github.com/nhunhce201241-creator"
+                       target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-icon">⌘</div>
+                <h2>My Developer Journey</h2>
+                <p>
+                    Learning through academic and personal projects,
+                    with a focus on programming fundamentals, clean code,
+                    and continuous improvement.
+                </p>
+                <div class="profile-detail">
+                    <strong>Currently exploring</strong><br>
+                    C# · .NET · SQL Server · Application Development
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-label">01 / About</span>
+                    <h2 class="section-title">A little about me</h2>
+                </div>
+                <div class="about-box">
+                    <p>
+                        I am a Software Engineering student at FPT University
+                        with experience gained through coursework, team projects,
+                        and independent development.
+                    </p>
+                    <p>
+                        I enjoy turning requirements into working applications,
+                        learning new technologies, and improving my problem-solving
+                        skills through hands-on practice.
+                    </p>
+                    <p>
+                        I am currently strengthening my skills in C#, .NET,
+                        database design, and software development practices.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-label">02 / Skills</span>
+                    <h2 class="section-title">Tools I work with</h2>
+                    <p class="section-description">
+                        Technologies and concepts I have used in my coursework
+                        and projects.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Programming</h3>
+                        <p>Languages and web fundamentals.</p>
+                        <div class="tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Frameworks & Concepts</h3>
+                        <p>Application development and architecture.</p>
+                        <div class="tags">
+                            <span class="tag">.NET</span>
+                            <span class="tag">WPF</span>
+                            <span class="tag">ASP.NET Core MVC</span>
+                            <span class="tag">OOP</span>
+                            <span class="tag">MVVM</span>
+                            <span class="tag">CRUD</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Database & Tools</h3>
+                        <p>Data management and development workflow.</p>
+                        <div class="tags">
+                            <span class="tag">SQL Server</span>
+                            <span class="tag">Entity Framework Core</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                            <span class="tag">Visual Studio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-label">03 / Projects</span>
+                    <h2 class="section-title">Things I've been building</h2>
+                    <p class="section-description">
+                        A selection of academic and personal projects.
+                        Work in progress is labelled clearly.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-top">
+                            <span class="project-icon">☕</span>
+                            <span class="status">In Progress</span>
+                        </div>
+                        <h3>CoffeeRuu</h3>
+                        <p>
+                            A team project focused on coffee shop management
+                            and menu administration.
+                        </p>
+                        <ul>
+                            <li>Developing product search and category filters.</li>
+                            <li>Working on product sorting and CRUD operations.</li>
+                            <li>Applying MVVM architecture in a WPF application.</li>
+                        </ul>
+                        <div class="tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">WPF</span>
+                            <span class="tag">EF Core</span>
+                            <span class="tag">SQL Server</span>
+                        </div>
+                        <a class="project-link"
+                           href="https://github.com/THAINGUYENPHAT/Group3_SE2001_Project_PRN212"
+                           target="_blank" rel="noopener noreferrer">View Repository ↗</a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-top">
+                            <span class="project-icon">🔎</span>
+                            <span class="status">In Progress</span>
+                        </div>
+                        <h3>RedLies</h3>
+                        <p>
+                            A narrative mystery game concept built around
+                            investigating cases and evaluating evidence.
+                        </p>
+                        <ul>
+                            <li>Developing a web application using ASP.NET Core MVC.</li>
+                            <li>Working with database models and Entity Framework Core.</li>
+                            <li>Designing investigation-focused gameplay elements.</li>
+                        </ul>
+                        <div class="tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">ASP.NET Core MVC</span>
+                            <span class="tag">SQL Server</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <a class="project-link"
+                           href="https://github.com/nhunhce201241-creator/RedLies-"
+                           target="_blank" rel="noopener noreferrer">View Repository ↗</a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-top">
+                            <span class="project-icon">🧩</span>
+                            <span class="status">Academic Project</span>
+                        </div>
+                        <h3>Sudoku</h3>
+                        <p>
+                            An academic project developed as part of my
+                            software engineering studies.
+                        </p>
+                        <p style="margin-top: 12px;">
+                            Project details and technologies can be added here.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Academic Project</span>
+                        </div>
+                        <!-- Add the real Sudoku repository link when available. -->
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="contact-box">
+                    <span class="section-label">04 / Contact</span>
+                    <h2 class="section-title">Let's connect.</h2>
+                    <p>
+                        I welcome opportunities to learn, collaborate,
+                        and grow as a software developer.
+                    </p>
+                    <div class="contact-links">
+                        <a href="https://github.com/nhunhce201241-creator"
+                           target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                        <!-- Replace the email below with your real email. -->
+                        <a href="mailto:YOUR_EMAIL@example.com">Email ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 Hong Nhu · Built with HTML & CSS
+        </div>
+    </footer>
+</body>
+</html>
+
