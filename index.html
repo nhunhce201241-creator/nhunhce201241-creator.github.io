@@ -354,6 +354,75 @@
             color: var(--pink);
         }
 
+        /* Certificates & Courses */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .certificate-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(169, 81, 114, 0.10);
+            border-color: #e5b5c7;
+        }
+
+        .certificate-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            border-radius: 16px;
+            background: var(--pink-light);
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+        }
+
+        .certificate-card h3 {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .certificate-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .certificate-preview {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-bottom: 18px;
+        }
+
+        .certificate-link {
+            display: inline-block;
+            margin-top: 18px;
+            color: var(--pink-dark);
+            font-weight: 700;
+            transition: color 0.2s ease;
+        }
+
+        .certificate-link:hover {
+            text-decoration: underline;
+            color: var(--pink);
+        }
+
         /* Contact */
         .contact-box {
             background: var(--pink-light);
@@ -427,7 +496,8 @@
             }
 
             .skills-grid,
-            .projects-grid {
+            .projects-grid,
+            .certificates-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -462,6 +532,7 @@
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
+                <a href="#certificates">Certificates</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -667,6 +738,31 @@
                         </a>
                     </article>
 
+                    <!-- Task Management -->
+                    <article class="project-card">
+                        <div class="project-top">
+                            <span class="project-icon">📝</span>
+                            <span class="status">Academic Project</span>
+                        </div>
+
+                        <h3>Task Management</h3>
+                        <p>
+                            A task management project developed to practice
+                            programming and organizing task-related information.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Academic Project</span>
+                            <span class="tag">Task Management</span>
+                        </div>
+
+                        <a class="project-link"
+                           href="https://github.com/nhunhce201241-creator/TaskManagement"
+                           target="_blank" rel="noopener noreferrer">
+                            View Repository ↗
+                        </a>
+                    </article>
+
                     <!-- Sudoku -->
                     <article class="project-card">
                         <div class="project-top">
@@ -674,22 +770,133 @@
                             <span class="status">Academic Project</span>
                         </div>
 
-                        <h3>Sudoku</h3>
+                        <h3>Sudoku Game</h3>
                         <p>
-                            An academic project developed as part of my
-                            software engineering studies.
-                        </p>
-
-                        <p style="margin-top: 12px;">
-                            Project details and technologies can be added here.
+                            An academic Sudoku game project developed as part
+                            of my software engineering studies.
                         </p>
 
                         <div class="tags">
                             <span class="tag">Academic Project</span>
+                            <span class="tag">Game Development</span>
                         </div>
 
-                        <!-- Add the real Sudoku repository link when available. -->
+                        <a class="project-link"
+                           href="https://github.com/nhunhce201241-creator/SudokuGame"
+                           target="_blank" rel="noopener noreferrer">
+                            View Repository ↗
+                        </a>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates & Courses -->
+        <section id="certificates">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-label">04 / Learning</span>
+                    <h2 class="section-title">Certificates & Courses</h2>
+                    <p class="section-description">
+                        Online courses and certificates that support my
+                        continuous learning in software engineering and
+                        technology.
+                    </p>
+                </div>
+
+                <div class="certificates-grid">
+
+                    <!-- Certificate 1: Replace with your course information -->
+                    <article class="certificate-card">
+                        <div class="certificate-icon">🎓</div>
+                        <h3>Web Design for Everybody</h3>
+                        <p>Platform: Coursera</p>
+                        <p>Provider: University of Michigan</p>
+                        <p>Completion: [Month Year]</p>
+
+                        <!-- Replace # with your actual certificate URL -->
+                        <a class="certificate-link"
+                           href="#"
+                           target="_blank" rel="noopener noreferrer">
+                            View Certificate ↗
+                        </a>
+                    </article>
+
+                    <!-- Certificate 2 -->
+                    <article class="certificate-card">
+                        <div class="certificate-icon">💻</div>
+                        <h3>Software Design and Project Management</h3>
+                        <p>Platform: Coursera</p>
+                        <p>Provider: [University / Provider]</p>
+                        <p>Completion: [Month Year]</p>
+
+                        <a class="certificate-link"
+                           href="#"
+                           target="_blank" rel="noopener noreferrer">
+                            View Certificate ↗
+                        </a>
+                    </article>
+
+                    <!-- Certificate 3 -->
+                    <article class="certificate-card">
+                        <div class="certificate-icon">🧪</div>
+                        <h3>Software Engineering: Implementation and Testing</h3>
+                        <p>Platform: Coursera</p>
+                        <p>Provider: [University / Provider]</p>
+                        <p>Completion: [Month Year]</p>
+
+                        <a class="certificate-link"
+                           href="#"
+                           target="_blank" rel="noopener noreferrer">
+                            View Certificate ↗
+                        </a>
+                    </article>
+
+                    <!-- Certificate 4 -->
+                    <article class="certificate-card">
+                        <div class="certificate-icon">📐</div>
+                        <h3>Software Modeling with UML</h3>
+                        <p>Platform: Coursera</p>
+                        <p>Provider: [University / Provider]</p>
+                        <p>Completion: [Month Year]</p>
+
+                        <a class="certificate-link"
+                           href="#"
+                           target="_blank" rel="noopener noreferrer">
+                            View Certificate ↗
+                        </a>
+                    </article>
+
+                    <!-- Certificate 5: Add another course -->
+                    <article class="certificate-card">
+                        <div class="certificate-icon">📚</div>
+                        <h3>[Your Course Name]</h3>
+                        <p>Platform: Coursera</p>
+                        <p>Provider: [University / Provider]</p>
+                        <p>Completion: [Month Year]</p>
+
+                        <a class="certificate-link"
+                           href="#"
+                           target="_blank" rel="noopener noreferrer">
+                            View Certificate ↗
+                        </a>
+                    </article>
+
+                    <!-- Certificate 6: Add another course -->
+                    <article class="certificate-card">
+                        <div class="certificate-icon">✨</div>
+                        <h3>[Your Course Name]</h3>
+                        <p>Platform: Coursera</p>
+                        <p>Provider: [University / Provider]</p>
+                        <p>Completion: [Month Year]</p>
+
+                        <a class="certificate-link"
+                           href="#"
+                           target="_blank" rel="noopener noreferrer">
+                            View Certificate ↗
+                        </a>
+                    </article>
+
                 </div>
             </div>
         </section>
@@ -698,7 +905,7 @@
         <section id="contact">
             <div class="container">
                 <div class="contact-box">
-                    <span class="section-label">04 / Contact</span>
+                    <span class="section-label">05 / Contact</span>
                     <h2 class="section-title">Let's connect.</h2>
                     <p>
                         I welcome opportunities to learn, collaborate,
